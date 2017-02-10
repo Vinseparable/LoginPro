@@ -7,7 +7,7 @@
 <title>Login Page.</title>
 </head>
 <body>
-	<form action="LoginServlet" method="get">
+	<form action="LoginServlet" method="post">
 		账号：<input type="text" name="username" placeholder="请输入账号" /><br/><br/>
 		密码：<input type="password" name="password" placeholder="请输入密码" /><br/><br/>
 		<input type="submit" value="Login" />
