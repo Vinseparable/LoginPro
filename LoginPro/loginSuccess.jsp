@@ -7,6 +7,11 @@
 <title>Login Success.</title>
 </head>
 <body>
-	Login Success.
+	Login Success.<br/>
+	Welcome, <a href="#" style="font-size:35px;font-color:red;">
+	<%
+		String userName = (String)application.getAttribute("userName"); 
+		out.write(userName);
+	%></a>.
 </body>
 </html>

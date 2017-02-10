@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		String confUsername = this.getServletConfig().getInitParameter("USERNAME");
 		String confPassword = this.getServletConfig().getInitParameter("PASSWORD");
@@ -32,9 +32,12 @@ public class LoginServlet extends HttpServlet {
 		
 		if(inputUsername.equals(confUsername)&&inputPassword.equals(confPassword)){
 			System.out.println("Login successed.");
+			this.getServletContext().setAttribute("userName", inputUsername);
 			request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
 		}else{
 			System.out.println("Login failed.");
+			response.getWriter().append("Login faild,please Login again.");
+			response.setHeader("Refresh","2;url='loginPage.jsp'");
 		}
 	}
 
